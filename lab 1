@@ -1,0 +1,34 @@
+---------------- TASK 1 ----------------
+# a) make 2 directories w/ 5 files w/ different names and 2 different extensions
+mkdir d1 d2
+touch d1/a.txt d1/c.txt d1/b.txt d1/d.png d1/e.png d1/f.png
+
+# b) in terminal window show all files and directories by creation date
+ls -R
+
+# c) copy a few files w/ same extension to empty directory & delete same files in old one
+cp d1/d.png d1/e.png d1/f.png d2
+
+# d) in terminal window, show all files and directories in alphabetical order
+ls -R
+
+
+---------------- TASK 2 ----------------
+# a) make directory w/ 4 directories inside
+mkdir -p d1/a d1/b d1/c d1/d
+
+# b) make files w/ content for each directory
+touch d1/a/a.txt d1/b/b.txt d1/c/c.txt d1/d/d.txt
+
+# c) show all files and directories in column and by creation date
+ls -Rlt
+
+# create content for file
+echo "hi" >> a.txt
+
+# d) show content of any file
+cat a.txt
+
+# e) delete directories & contents and display a message showing it has been done
+rm -r d1
+echo "All contents have been deleted."
