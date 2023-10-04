@@ -1,0 +1,97 @@
+------------------ TASK 1 ----------------------------
+
+a) Create new directory. In directory create 5 new files with different extensions.
+   b) In terminal window show all files types and their permissions (recursively)
+   c) Give the file creator only executable and reading permissions to all created files using symbolic method.
+   d) In terminal window show files permissions.
+   e) Give the group only reading permissions to all created files using octal method.
+   f) In terminal window show files permissions.
+
+Use only one command for display (list files/folders), copy, move or erase operations.
+...
+
+# a) make new directory 
+mkdir d1
+
+# In directory create 5 new files with different extensions.
+touch d1/file1.txt d1/file2.jpg d1/file3.pdf d1/file4.docx d1/file5.py
+
+# b) In terminal window show all files types and their permissions (recursively)
+ls -R
+
+# c) Give the file creator only executable and reading permissions to all created files using symbolic method.
+chmod u+rx file1.txt file2.jpg file3.pdf file4.docx file5.py
+# u - specifies user permissions
+# + adds permissions
+# r - read permission
+# x - execute permission
+
+# d) In terminal window show files permissions.
+ls -l
+
+# e) Give the group only reading permissions to all created files using octal method.
+chmod 440 file1.txt file2.jpg file3.pdf file4.docx file5.py
+# first 4 - grant read permission to owner
+# second 4 - grant read permission to group
+# 0 - no other permissions for others
+
+
+# f) In terminal window show files permissions.
+ls -l
+
+
+
+------------------ TASK 2 ----------------------------
+
+a) Create multiple (minimum 3) background processes (use sleep to create processes).
+    b) Display a full list of processes and background processes in the terminal window.
+    c) Stop script operation.
+
+Use only one command for display (list files/folders), copy, move or erase operations.
+...
+
+# a) Create multiple (minimum 3) background processes (use sleep to create processes).
+sleep 10 & sleep 5 & sleep 2 &
+# sleep 10 seconds, 5 and 2 in background
+# putting & makes it in background
+
+# b) Display a full list of processes and background processes in the terminal window.
+ps -ef | grep -v grep | grep 'bash'
+# process status
+# e - all processes // f - full format
+# grep - filters out lines w/ grep
+# bash- filters output further
+
+# c) Stop script operation.
+exit 0
+
+
+
+
+------------------ THEORY ----------------------------
+1. what key combination can suspend foreground process
+ctrl + z
+
+2. what is the difference between absolute and relative path
+absolute - always start w/ root directory & provide full path to the file / directory
+relative - path to file / directory that is relative to the current directory
+
+3. how to return from anywhere on file system to the users home directory
+with command "cd"
+
+4. how is symbolic link created
+with command "ln"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
