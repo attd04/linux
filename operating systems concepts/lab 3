@@ -1,0 +1,71 @@
+
+
+------ TASK 1 ------
+#First script:
+# 1. Create a directory
+mkdir d1
+
+# Set the environment variable with the directory name
+2. export MY_DIRECTORY="d1"
+
+#3. In terminal window show the directory name and run the second script
+echo "$MY_DIRECTORY" && touch "$MY_DIRECTORY/file1.txt" "$MY_DIRECTORY/file2.txt" "$MY_DIRECTORY/file3.txt"
+echo "Directory name: $MY_DIRECTORY"
+
+# Run the second script
+./second_script.sh
+
+#Second script:
+# 1. List directory and files in it
+ls "$MY_DIRECTORY"
+
+# 2. Create a few files in the directory using the environment variable
+touch "$MY_DIRECTORY/file1.txt"
+touch "$MY_DIRECTORY/file2.txt"
+touch "$MY_DIRECTORY/file3.txt"
+
+# 3. List directory and files in it again
+ls "$MY_DIRECTORY"
+
+
+------ TASK 2 ------
+# First script:
+# Create 5 files with different names, one containing "b" in the name
+touch file1.txt file2.txt file_b.txt file3.txt file4.txt
+
+# Store the filename with "b" symbol in an environment variable using filename substitution
+FILE_B=$(ls | grep 'b.*\.txt')
+export FILE_B
+
+# Show the full list of files in alphabetical order
+ls | sort
+
+# Run second script
+./second_script.sh
+
+# Second script:
+# Delete the file stored in the environment variable
+rm "$FILE_B"
+
+# Show the full list of files in alphabetical order
+ls | sort
+
+------ THEORY ------
+1. Why scalar variables are also called name-value pair?
+Because the value of a scalar variable can be assigned by writing 'NAME=VALUE'
+
+2. What syntax allows to list all elements in an array?
+@ or *
+
+3. What does wildcard symbol ? allows to change in the file name?
+matching a single character in a filename. example: 
+file1.txt
+file2.txt
+fileA.txt
+fileB.txt
+using "?", you can match files with a similar pattern where the "?" represents a single character:
+ file?.txt will match file1.txt and file2.txt but not fileA.txt or fileB.txt
+
+4. What is called local variable in shell programming?
+Local
+
