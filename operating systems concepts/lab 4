@@ -1,0 +1,49 @@
+ --- task 1 --- 
+
+# 1. create 2 directories 
+mkdir d1 d2
+
+# 2 In one of directories create 50 files with different names using for cycle. File name format: aX.txt, where X is a number from 10 to 60.
+for ((i=10; i<=60; i++)); do
+    touch d1/a${i}.txt
+done
+
+# 3 Display both directories and their contents (recursively)
+echo 'Directories D1 and D2 after step 2:'
+ls -R
+
+# 4 Copy to another directory files that contain an even numbers only in their names.
+for ((i=10; i<=60; i+=2)); do
+    cp ./d1/a${i}.txt ./d2
+done
+
+# 5 Display both directories and their contents (recursively)
+echo 'Directories D1 and D2 after step 4:'
+ls -R
+
+ --- task 2 --- 
+First script:
+1. Create directory
+2. In directory create 60 files with different names using while cycle. File name format: aXb.txt, where X is a number from 20 to 80.
+3. In environment variable store file names which contains a number 7 only.
+4. Run a second script
+
+Second script:
+1. Display the contents of the directory
+2. Only delete files whose names are stored in the environment variable
+3. Display the contents of the directory
+
+
+theory: 
+1. What is the difference between single and double quotes?
+The single quotes tell bash to print the characters specified within the quotes while 
+double quotes interpolate the input and display the variable's value
+
+2. What this condition checks: if [ -z $b ]?
+this condition is checking whether the variable b is an empty string 
+
+3. What is the difference between while and until cycles? 
+The while loop stops when the specified condition becomes false, the until loop stops when the specified condition becomes true
+
+4. Why do we need the \ character between quotes in the text?
+It is used to indicate that the character following it should be treated literally and not as a special character with its usual meaning
