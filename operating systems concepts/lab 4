@@ -22,11 +22,21 @@ echo 'Directories D1 and D2 after step 4:'
 ls -R
 
  --- task 2 --- 
-First script:
-1. Create directory
-2. In directory create 60 files with different names using while cycle. File name format: aXb.txt, where X is a number from 20 to 80.
-3. In environment variable store file names which contains a number 7 only.
-4. Run a second script
+# First script:
+# 1. Create directory
+mkdir d1
+
+# 2. In directory create 60 files with different names using while cycle. File name format: aXb.txt, where X is a number from 20 to 80.
+for ((i=20; i<=80; i++)); do
+    touch d1/a${i}b.txt
+done
+
+# 3. In environment variable store file names which contains a number 7 only.
+files_with_7=$(ls | grep '7.*\.txt')
+export files_with_7
+
+# 4. Run a second script
+./second_script.sh
 
 Second script:
 1. Display the contents of the directory
