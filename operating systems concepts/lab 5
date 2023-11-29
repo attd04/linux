@@ -1,0 +1,28 @@
+# Create two directories
+mkdir d1 d2
+
+# In one of directories create 1000 files with different names. The format of the file name: XY.txt, where X is a number, Y – letters from a to z.
+for ((i=1; i<=1000; i++)); do
+    letter=$(printf "\\$(printf %o $((i%26 + 96)))")
+    file_name="${i}${letter}.txt"
+    touch "d1/$file_name"
+done
+
+# Display both directories and their contents (recursively)
+echo 'Directories D1 and D2 after step 2:'
+ls -R
+
+# Read the letter entered by the user
+echo "Enter a letter: "
+read user_input
+
+# Copy only files with the user specified letter in their name to another directory.
+for file in d1/*$user_input*; do
+    if [ -f "$file" ]; then
+        cp "$file" d2/
+    fi
+done
+
+# Display both directories and their contents (recursively)
+echo 'Directories D1 and D2 after step 5:'
+ls -R
