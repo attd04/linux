@@ -27,6 +27,43 @@ done
 echo 'Directories D1 and D2 after step 5:'
 ls -R
 
+--------- task 2
+
+First script:
+Create directory
+In directory create 1200 files with different names. The format of the file name: XXX.txt, where X are letters from a to z.
+Read the letter entered by the user
+Store in environment variable only files with the user specified letter in their name.
+Run a second script
+
+COUNTER = 0
+
+for x in {a..z}; do
+    for y in {a..z}; do
+        for z in {a..z}; do
+            let COUNTER++
+            if [ $COUNTER -le 1200 ]; then
+                touch "d1/$x$y$z.txt"
+            fi
+        done
+    done
+done
+        
+# Read the letter entered by the user
+read -p "Enter a letter: " letter
+
+# Store in environment variable only files with the user specified letter in their name.
+files_with_letter=$(find d1 -type f -name "*$letter*")
+
+./second_script.sh
+
+Second script:
+Display the contents of the directory and the number of files in them
+Delete only files, which names are in the environment variable
+Display the contents of the directory and the number of files in them
+mkdir d1
+
+
 
 
 theory: 
