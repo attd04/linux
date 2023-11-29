@@ -26,3 +26,18 @@ done
 # Display both directories and their contents (recursively)
 echo 'Directories D1 and D2 after step 5:'
 ls -R
+
+
+
+theory: 
+1. What $@ special variable is used for?
+all of the parameters passed to the script
+
+2. What basename command is used for?
+strips directory information and suffixes from file names 
+
+3. What is the difference between echo and printf commands?
+printf has more precise control over what's being printed so it's more suitable for numbers and decimals.
+echo is good for printing text or strings because it has very little formatting requirements
+
+4. Why do we need > symbol in the output?
