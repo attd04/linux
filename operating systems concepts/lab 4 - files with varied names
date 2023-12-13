@@ -21,6 +21,27 @@ done
 echo 'Directories D1 and D2 after step 4:'
 ls -R
 
+--- task 1 take 2 --- 
+
+# Create a directory
+mkdir d1
+
+# In directory create 60 files with different names using while cycle. File name format: aXb.txt, where X is a number from 20 to 80.
+for ((i=20; i<=80; i++)); do
+    touch d1/a${i}b.txt
+done
+
+# Display the contents of the directory
+echo "files with numbers 20 to 80"
+ls -R
+
+# Only delete files with number 2 in their names.
+find d1 -type f -name "*2*.txt" -delete
+
+# Display the contents of the directory
+echo "files after deleting those with number 2"
+ls -R
+
  --- task 2 --- 
 # First script:
 # 1. Create directory
@@ -44,6 +65,57 @@ Second script:
 3. Display the contents of the directory
 
 
+--- task 2 take 2 --- not working
+
+mkdir -p d1
+
+
+
+for ((i=40; i<=90; i++)); do
+
+    touch d1/ab${i}.txt
+
+done
+
+
+
+even_files=$(/bin/ls -d -- ./d1/*[24680].txt)
+
+even_files=($even_files)
+
+
+
+for file in "${even_files[@]}"; do
+
+    echo $file
+
+done
+
+
+
+export even_files
+
+
+./second_script.sh
+
+echo "directory d1"
+
+ls -R d1
+
+for file in "${even_files[@]}"; do
+
+    rm "$file"
+
+done
+
+echo ". "
+
+echo "directory d1 after deletion"
+
+ls -R d1
+
+
+
 theory: 
 1. What is the difference between single and double quotes?
 The single quotes tell bash to print the characters specified within the quotes while 
@@ -57,3 +129,17 @@ The while loop stops when the specified condition becomes false, the until loop 
 
 4. Why do we need the \ character between quotes in the text?
 It is used to indicate that the character following it should be treated literally and not as a special character with its usual meaning
+
+5. Why you should avoid special characters in the filename? 
+because it can cause compatibility issues with different operating systems and applications
+
+6. What this condition checks: if [ $a -ge $b ]?
+this condition checks if the value of the variable $a is greater than or equal to the value of the variable $b
+
+7. When the cycle will stop: while [ $a -gt $b ]?
+this loop will to execute as long as $a is greater than $b so once it is less, it will stop.
+
+8. What continue command is used for? 
+continue is used to skip the current iteration in for, while, and until loops
+
+
