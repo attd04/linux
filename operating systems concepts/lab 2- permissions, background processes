@@ -1,45 +1,30 @@
 ------------------ TASK 1 ----------------------------
 
-a) Create new directory. In directory create 5 new files with different extensions.
-   b) In terminal window show all files types and their permissions (recursively)
-   c) Give the file creator only executable and reading permissions to all created files using symbolic method.
-   d) In terminal window show files permissions.
-   e) Give the group only reading permissions to all created files using octal method.
-   f) In terminal window show files permissions.
-
-Use only one command for display (list files/folders), copy, move or erase operations.
-...
-
-# a) make new directory 
+# a) Create new directory. In directory create 5 new files with different extensions.
 mkdir d1
-
-# In directory create 5 new files with different extensions.
 touch d1/file1.txt d1/file2.jpg d1/file3.pdf d1/file4.docx d1/file5.py
 
-# b) In terminal window show all files types and their permissions (recursively)
+#b) In terminal window show all files types and their permissions (recursively)
 ls -R
 
-# c) Give the file creator only executable and reading permissions to all created files using symbolic method.
-chmod u+rx file1.txt file2.jpg file3.pdf file4.docx file5.py
+#c) Give the file creator only executable and reading permissions to all created files using symbolic method.
+chmod u+rx d1/file1.txt d1/file2.jpg d1/file3.pdf d1/file4.docx d1/file5.py
+
 # u - specifies user permissions
 # + adds permissions
 # r - read permission
 # x - execute permission
 
-# d) In terminal window show files permissions.
-ls -l
+#d) In terminal window show files permissions.
+echo "Files permissions after step C"
+ls -l d1/file1.txt d1/file2.jpg d1/file3.pdf d1/file4.docx d1/file5.py
 
-# e) Give the group only reading permissions to all created files using octal method.
-chmod 440 file1.txt file2.jpg file3.pdf file4.docx file5.py
-# first 4 - grant read permission to owner
-# second 4 - grant read permission to group
-# 0 - no other permissions for others
+#e) Give the group only reading permissions to all created files using octal method.
+echo "File permissions - group only using octal method"
+chmod 440 d1/file1.txt d1/file2.jpg d1/file3.pdf d1/file4.docx d1/file5.py
 
-
-# f) In terminal window show files permissions.
-ls -l
-
-
+#f) In terminal window show files permissions.
+ls -l d1/file1.txt d1/file2.jpg d1/file3.pdf d1/file4.docx d1/file5.py
 
 ------------------ TASK 2 ----------------------------
 
@@ -65,8 +50,21 @@ ps -ef | grep -v grep | grep 'bash'
 # c) Stop script operation.
 exit 0
 
+------------------ TASK 2 take 2 ----------------------------
 
+# a) Create multiple (minimum 3) background processes (use sleep to create processes).
+sleep 10 & sleep 5 & sleep 2 &
 
+# b) Display a full list of processes and background processes in the terminal window.
+echo "Processes and background processes: "
+ps -ef | grep -v grep | grep 'bash'
+
+# c) Stop the third background process.
+kill %3
+
+# d) Display a full list of processes and background processes in the terminal window.
+echo "processes and background processes after killing third"
+ps aux
 
 ------------------ THEORY ----------------------------
 1. what key combination can suspend foreground process
